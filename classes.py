@@ -70,3 +70,25 @@ print("Balance after withdrawal:", obj1.getBalance())
 obj1.deposit(500)
 print("Balance after deposit:", obj1.getBalance())
 print("Interest on current balance:", obj1.interestAmount())
+
+# overwriting a method with the super filter
+
+# Parent Class
+class Shape:
+    sname = "Shape"
+
+    def getName(self):
+        return self.sname
+
+
+# child class
+class XShape(Shape):
+    # initializer
+    def __init__(self, name):
+        self.xsname = name
+
+    def getName(self):  # overriden method
+        return (super().getName() + ", " + self.xsname)
+
+circle = XShape("Circle")
+print(circle.getName())
